@@ -5,10 +5,9 @@ import com.example.demoexams.Entity.Participant;
 import com.example.demoexams.Service.IEventService;
 import com.example.demoexams.Service.IParticipService;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @AllArgsConstructor
@@ -17,6 +16,10 @@ public class EventController {
     IEventService eventService;
     @PostMapping(path = "/event")
     public Event ajoutEvent(@RequestBody Event e) {
-        return eventService.ajoutAffectEvenParticip(e);
+        return eventService.ajoutAffectEventParticip(e);
+    }
+    @GetMapping(path="event")
+    public List<Event> getEvents() {
+        return eventService.DisplayAllEvents();
     }
 }
