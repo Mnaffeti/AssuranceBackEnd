@@ -5,8 +5,8 @@ services:
     environment:
       POSTGRES_USER: root
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: db_exam
+      POSTGRES_DB: db_assurance
     ports:
       - "5432:5432"
     volumes:
-      - ./postgres-datas:/var/lib/postgresql/data
+      - ./postgres-assurance:/var/lib/postgresql/data
